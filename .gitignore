@@ -1,0 +1,24 @@
+node_modules
+favicon.ico
+build
+tests
+test
+
+
+*.swp
+*.swo
+*.log
+.project
+.babelrc
+.idea
+.tmp
+/temp
+.sass-cache
+
+# Linux.gitignore
+*~
+
+# OSX.gitignore
+# Thumbnails
+._*
+*.DS_Store

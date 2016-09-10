@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../common/base.css"/>
+  <!-- base font-size: 16px; rem relative to 16px; em relative to the cloest parent-->
+  <style>
+    .button.deprecated {
+      /*padding: 6px 16px;*/
+      padding: 0.3em 0.8em;
+      /*border: 1px solid #446d88;*/
+      border: 1px solid rgba(0, 0, 0, .1);
+      background: #58a linear-gradient(#77a0bb, #58a);
+      /*border-radius: 4px;*/
+      border-radius: .2em;
+      /*box-shadow: 0 1px 5px gray;*/
+      box-shadow: 0 .05em .25em gray;
+      color: white;
+      text-shadow: 0 -1px 1px #335166;
+      /* font-size: 20px; */
+      font-size: 125%;
+      /*line-height: rather than 30px;*/
+      line-height: 1.5;
+    }
+
+    .button {
+      padding: 0.3em 0.8em;
+      border: 1px solid rgba(0, 0, 0, .1);
+      background: #58a linear-gradient(hsla(0, 0%, 100%, .2), transparent);
+      border-radius: .2em;
+      box-shadow: 0 .05em .25em rgba(0, 0, 0, .5);
+      color: white;
+      text-shadow: 0 -.05em .05em rgba(0, 0, 0, .5);
+      font-size: 125%;
+      line-height: 1.5;
+      /**try this **/
+      /*border-width: 10px;*/
+      /*border-left-width: 0;*/
+    }
+
+    .button.ok {
+      background-color: #c00;
+    }
+
+    .button.cancel {
+      background-color: #6b0;
+    }
+
+    hr {
+      height: .5em;
+      color: #ccc;
+      /* currentColor same to color value */
+      background: currentColor;
+      /* Notice: border-color, text-shadow, box-shadow, outline-color .etc initial to color prop value*/
+    }
+
+    /* inherit */
+    .callout {
+      margin-top: .45em;
+      position: relative;
+      border: 1px solid #ccc;
+      background: #ccc;
+    }
+
+    .callout::before {
+      content: '';
+      position: absolute;
+      top: -.4em;
+      left: 1em;
+      padding: .35em;
+      background: inherit;
+      border: inherit;
+      border-right: 0;
+      border-bottom: 0;
+      transform: rotate(45deg);
+    }
+
+  </style>
+</head>
+<body>
+<button class="button">Yes!</button>
+<button class="button ok">Yes!</button>
+<button class="button cancel">Yes!</button>
+<hr/>
+<!-- inherit -->
+Your username:<br/>
+<input placeholder="leaverou" style="height: 1.5em; line-height: 1.5;"/>
+<div class="callout">
+  Only letters, numbers, underscores and hyphens allowed!
+</div>
+<b>Tips: using em in media query, so text zoom leads to layout changes. </b>
+</body>
+</html>
