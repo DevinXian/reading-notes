@@ -4,13 +4,51 @@
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="../common/base.css"/>
   <style>
+    .rect {
+      box-sizing: border-box;
+      font-size: 2em;
+      color: #fff;
+    }
+
     /*
+     * Solution 1: extended background-position
      */
+    .rect.bg-pos {
+      /*bottom right as a fallback solution*/
+      background: url(image/code-pirate.svg) no-repeat bottom right #58a;
+      background-position: right 10px bottom 10px;
+    }
 
+    /*
+     * Solution2: background-origin - only works for no fixed background-image prop
+     */
+    .rect.bg-origin {
+      background: url(image/code-pirate.svg) no-repeat bottom right #58a;
+      padding: 10px;
+      /* default `padding-box`, user `context-box` bg will not cover padding*/
+      background-origin: content-box;
+    }
 
+    /**
+     * Solution3: calc
+     */
+    .rect.bg-calc {
+      background: url(image/code-pirate.svg) no-repeat bottom right #58a;
+      background-position: calc(100% - 20px) calc(100% - 20px);
+    }
   </style>
 </head>
 <body>
-<div class="rect shadow"></div>
+<div class="rect bg-pos">
+  Code Pirate
+</div>
+
+<div class="rect bg-origin">
+  Code Pirate
+</div>
+
+<div class="rect bg-calc">
+  Code Pirate
+</div>
 </body>
 </html>

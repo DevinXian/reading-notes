@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../common/base.css"/>
+  <style>
+    /* Solution 1: two elements*/
+    .outer {
+      background: #655;
+      padding: .8em;
+    }
+
+    .inner {
+      background: tan;
+      padding: 1em;
+      border-radius: .8em;
+    }
+
+    /*
+     * Solution1: outline + box-shadow (note that outline is not in border-box)
+     * box-shadow follow element rounding;
+     * assume r = border-radius = r, then the distance from rounding center to corner is Math.sqrt(2) * r,
+     * 1. fix the gap need min-width for box-shadow is : Math.sqrt(2) * r - r;
+     * 2. box-shadow width < outline width
+     * so. width(outline) > width(box-shadow) > (Math.sqrt(2) - 1) * width(border-radius)
+     */
+
+    .inner-rounding {
+      background: tan;
+      border-radius: .8em;
+      padding: 1em;
+      box-shadow: 0 0 0 .56em #655;
+      outline: .6em solid #655;
+    }
+  </style>
+</head>
+<body>
+<div class="rect outer">
+  <div class="inner">
+    I have a nice subtle inner
+    rounding, don’t I look pretty?
+  </div>
+</div>
+
+<div class="rect inner-rounding">
+</div>
+
+</body>
+</html>
