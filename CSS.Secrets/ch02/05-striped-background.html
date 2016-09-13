@@ -17,12 +17,65 @@
       background: linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
       background-size: 100% 100%;
     }
+
+    .rect.vertical-striped {
+      background: linear-gradient(to right /* 90deg */, #fb3 50%, #58a 0);
+      background-size: 30px 100%;
+    }
+
+    /** basic diagonal stripes **/
+    .rect.diagonal-striped {
+      background: linear-gradient(45deg, #fb3 50%, #58a 0);
+      background-size: 30px 30px;
+    }
+
+    .rect.diagonal-striped-whole-base {
+      background: linear-gradient(45deg, #fb3 25%, #58a 0, #58a 50%, #fb3 0, #fb3 75%, #58a 0);
+      /*background-size: 30px 30px;*/
+      background-size: 42px 42px; /* almost 30px * Math.sqrt(2) ----------- A */
+    }
+
+    .rect.diagonal-striped-whole-repeat {
+      background: repeating-linear-gradient(45deg, #fb3, #58a 30px); /*gradually change*/
+    }
+
+    /** inline size need no Math.sqrt(2) handing **-------------------------C-*/
+    .rect.diagonal-striped-whole-repeat-sharp {
+      background: repeating-linear-gradient(45deg, #fb3 0, #fb3 15px, #58a 0, #58a 30px);
+    }
+
+    .rect.diagonal-striped-mixed {
+      background: repeating-linear-gradient(45deg,
+      #fb3 0, #fb3 25%, #58a 0, #58a 50%);
+      background-size: 42px 42px; /*--------------------------B---*/
+    }
+
+    /*
+     * Notice: background-size need deal with Math.sqrt(2), such as: A and B;
+     * inline background-size not, suche as: C.
+     */
+
+    /* Flexible subtle stripes */
+    .rect.flexible-subtle-stripes {
+      background: repeating-linear-gradient(30deg, #79b, #79b 15px, #58a 0, #58a 30px);
+    }
+
+    .rect.flexible-subtle-stripes-with-transparent {
+      background-color: #58a;
+      background-image: repeating-linear-gradient(30deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1) 15px, transparent 0, transparent 30px);
+    }
   </style>
 </head>
 <body>
 
 <div class="rect basic-linear"></div>
 <div class="rect multi-striped"></div>
-
+<div class="rect vertical-striped"></div>
+<div class="rect diagonal-striped"></div>
+<div class="rect diagonal-striped-whole-base"></div>
+<div class="rect diagonal-striped-whole-repeat"></div>
+<div class="rect diagonal-striped-whole-repeat-sharp"></div>
+<div class="rect flexible-subtle-stripes"></div>
+<div class="rect flexible-subtle-stripes-with-transparent"></div>
 </body>
 </html>
