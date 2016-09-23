@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../common/base.css"/>
+  <style>
+    .rect.basic-grids {
+      background-color: white;
+      background-image: linear-gradient(90deg, rgba(200, 0, 0, .5) 50%, transparent 0), linear-gradient(rgba(200, 0, 0, .5) 50%, transparent 0);
+      background-size: 30px 30px, 30px 30px;
+    }
+
+    .rect.grids-thin {
+      background-color: #58a;
+      background-image: linear-gradient(white 1px, transparent 0), linear-gradient(90deg, white 1px, transparent 0);
+      background-size: 30px 30px;
+    }
+
+    .rect.grids-thin-mixed {
+      background-color: #58a;
+      background-image: linear-gradient(white 2px, transparent 0), linear-gradient(90deg, white 2px, transparent 0),
+      linear-gradient(white 1px, transparent 0), linear-gradient(90deg, white 1px, transparent 0);
+      background-size: 75px 75px, 75px 75px, 15px 15px, 15px 15px;
+    }
+
+    .rect.dot-array {
+      background-color: #655;
+      background-image: radial-gradient(tan 30%, transparent 0);
+      background-size: 30px 30px;
+    }
+
+    /* may need preprocess, ensure half size relation*/
+    .rect.dot-array-polka {
+      background-color: #655;
+      background-image: radial-gradient(tan 30%, transparent 0), radial-gradient(tan 30%, transparent 0);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+
+    /*   SCSS code
+    @mixin polka($size, $dot, $base, $accent) {
+      background: $base;
+      background-image:
+        radial-gradient($accent $dot, transparent 0),
+        radial-gradient($accent $dot, transparent 0);
+      background-size: $size $size;
+      background-position: 0 0, $size/2 $size/2;
+    }
+    */
+
+    /** not a good one **/
+    .rect.checker-borders-solid-color {
+      background: white;
+      background-image: linear-gradient(transparent 50%, tan 0), linear-gradient(90deg, transparent 50%, tan 0);
+      background-size: 30px 30px;
+    }
+
+    .rect.right-triangle {
+      background: #eee;
+      background-image: linear-gradient(45deg, #bbb 25%, transparent 0);
+      background-size: 30px 30px;
+    }
+
+    .rect.right-triangle-oppsite {
+      background: #eee;
+      background-image: linear-gradient(45deg, transparent 75%, #bbb 0);
+      background-size: 30px 30px;
+    }
+
+    .rect.right-triangle-couple {
+      background: #eee;
+      background-image: linear-gradient(45deg, #bbb 25%, transparent 0), linear-gradient(45deg, transparent 75%, #bbb 0);
+      background-size: 30px 30px;
+    }
+
+    .rect.checker-borders-ultra {
+      background: #eee;
+      background-image: linear-gradient(45deg, #bbb 25%, transparent 0),
+      linear-gradient(45deg, transparent 75%, #bbb 0),
+      linear-gradient(45deg, #bbb 25%, transparent 0),
+      linear-gradient(45deg, transparent 75%, #bbb 0);
+      background-position: 0 0, 15px 15px, 15px 15px, 30px 30px;
+      background-size: 30px 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="rect basic-grids"></div>
+<div class="rect grids-thin"></div>
+<div class="rect grids-thin-mixed"></div>
+
+<div class="rect dot-array"></div>
+<div class="rect dot-array-polka"></div>
+
+<div class="rect checker-borders-solid-color"></div>
+<div class="rect right-triangle"></div>
+<div class="rect right-triangle-oppsite"></div>
+<div class="rect right-triangle-couple"></div>
+<div class="rect checker-borders-ultra"></div>
+
+</body>
+</html>
