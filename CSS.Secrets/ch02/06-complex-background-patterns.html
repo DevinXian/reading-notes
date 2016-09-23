@@ -75,14 +75,40 @@
 
     .rect.checker-borders-ultra {
       background: #eee;
-      background-image: linear-gradient(45deg, #bbb 25%, transparent 0),
-      linear-gradient(45deg, transparent 75%, #bbb 0),
-      linear-gradient(45deg, #bbb 25%, transparent 0),
-      linear-gradient(45deg, transparent 75%, #bbb 0);
+      background-image: linear-gradient(45deg, #bbb 25%, transparent 0), linear-gradient(45deg, transparent 75%, #bbb 0),
+      linear-gradient(45deg, #bbb 25%, transparent 0), linear-gradient(45deg, transparent 75%, #bbb 0);
       background-position: 0 0, 15px 15px, 15px 15px, 30px 30px;
       background-size: 30px 30px;
     }
 
+    .rect.checker-borders-triangle {
+      background: #eee;
+      background-image: linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 0, transparent 75%, rgba(0, 0, 0, .25) 0),
+      linear-gradient(45deg, rgba(0, 0, 0, .25) 25%, transparent 0, transparent 75%, rgba(0, 0, 0, .25) 0);
+      background-position: 0 0, 15px 15px;
+      background-size: 30px 30px;
+    }
+
+    /*   SCSS code
+    @mixin checkerboard($size, $base, $accent: (0, 0, 0, .25)) {
+      background: $base;
+      background-image:
+      linear-gradient(45deg,
+      $accent 25%, transparent 0,
+      transparent 75%, $accent 0),
+      linear-gradient(45deg,
+      $accent 25%, transparent 0,
+      transparent 75%, $accent 0);
+      background-position: 0 0, $size $size,
+      background-size: 2*$size 2*$size;
+    }
+    */
+
+    .rect.svg-url{
+      background: #eee url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" \
+      fill-opacity=".25"><rect x="50" width="50" height="50" /><rect y="50" width="50" height="50" /></svg>');
+      background-size: 30px 30px;
+    }
   </style>
 </head>
 <body>
@@ -98,7 +124,16 @@
 <div class="rect right-triangle"></div>
 <div class="rect right-triangle-oppsite"></div>
 <div class="rect right-triangle-couple"></div>
-<div class="rect checker-borders-ultra"></div>
+<div class="rect checker-borders-ultra"></div><!-- type 1 -->
+<div class="rect checker-borders-triangle"></div><!-- type 2-->
+
+<!--* checkerboard svg unit* -->
+<svg class="rect" xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill-opacity=".25">
+  <rect x="50" width="50" height="50"/>
+  <rect y="50" width="50" height="50"/>
+</svg>
+
+<div class="rect svg-url"></div>
 
 </body>
 </html>
