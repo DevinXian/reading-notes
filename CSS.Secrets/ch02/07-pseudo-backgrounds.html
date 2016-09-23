@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../common/base.css"/>
+  <style>
+    .rect.repetitive {
+      background: linear-gradient(90deg, #fb3 10%, #655 0, #655 40%, #ab4 0, #ab4 65%, hsl(20, 40%, 90%) 0);
+      background-size: 80px 100%;
+    }
+
+
+    /** LCM will be repeat cycle width: 80 60 40 -> 240*/
+    .rect.pseudo-random {
+      background: hsl(20, 40%, 90%);
+      background-image: linear-gradient(90deg, #fb3 10px, transparent 0), linear-gradient(90deg, #ab4 20px, transparent 0), linear-gradient(90deg, #655 20px, transparent 0);
+      background-size: 80px 100%, 60px 100%, 40px 100%;
+    }
+
+    /* use Prime, 41 * 61 * 83 -> far larger than screen */
+    .rect.pseudo-random {
+      background: hsl(20, 40%, 90%);
+      background-image: linear-gradient(90deg, #fb3 10px, transparent 0), linear-gradient(90deg, #ab4 20px, transparent 0), linear-gradient(90deg, #655 20px, transparent 0);
+      background-size: 41px 100%, 61px 100%, 83px 100%;
+    }
+
+  </style>
+</head>
+<body>
+<div class="rect repetitive"></div>
+<div class="rect pseudo-random"></div>
+</body>
+</html>
