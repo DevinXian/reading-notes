@@ -1,0 +1,90 @@
+.dot5-border-list {
+  width: 100%;
+
+  li {
+    width: 100%;
+    padding: 8px 15px;
+    margin-top: 20px;
+  }
+
+  .border-1px {
+    border: 1px solid #ccc;
+  }
+
+  //0.5px border
+  .border-0x5 {
+    position: relative;
+
+    // 4 borders(height: 200% <-> scale(0.5); height as parent
+    // border-radius also works!
+
+    //&:after{
+    //  content: '';
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  border: 1px solid #000;
+    //  -webkit-box-sizing: border-box;
+    //  box-sizing: border-box;
+    //  width: 200%;
+    //  height: 200%;
+    //  -webkit-transform: scale(0.5);
+    //  transform: scale(0.5);
+    //  -webkit-transform-origin: left top;
+    //  transform-origin: left top;
+    //}
+    &:before, &:after {
+      border-top: 1px solid #c8c7cc;
+      content: ' ';
+      display: block;
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+  }
+
+}
+
+@media(-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+  .border-0x5 {
+    &:before, &:after {
+      transform-origin: 0 0;
+      transform: scaleY(.7);
+    }
+
+    &:after {
+      transform-origin: left bottom;
+    }
+  }
+}
+
+@media(-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+  .border-0x5 {
+    &:before, &:after {
+      transform: scaleY(.5);
+    }
+  }
+}
+
+@media(-webkit-min-device-pixel-ratio: 2.5), (min-device-pixel-ratio: 2.5) {
+  .border-0x5 {
+    &:before, &:after {
+      transform: scaleY(.4);
+    }
+  }
+}
+
+@media(-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .border-0x5 {
+    &:before, &:after {
+      transform: scaleY(.34);
+    }
+  }
+}
