@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>完美的水平垂直居中！！--兼容ie6，ie7，ff，opera，safari的水平垂直居中</title>
+
+  <style media="screen" type="text/css">
+    .wrapper {
+      width: 100%;
+      height: 400px;
+      background: #ccc;
+      border: 1px #000 solid;
+    }
+
+    .holder {
+      width: 500px;
+      height: 200px;
+      display: table;
+      position: relative;
+      margin: 12px auto;
+      border: 1px solid #596480;
+      background: #ffc;
+    }
+
+    .holder div {
+      *position: absolute;
+      top: 50%;
+      left: 0;
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    .holder p {
+      position: relative;
+      top: -50%;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    /*
+    分两套看
+    holder的 display:table
+    holder div的 display:table-cell; vertical-align:middle;
+    就可以实现在ff，safari和opera下的垂直居中，但是对ie系列无效
+
+    holder的 position:relative;
+    holder div的 *position:absolute;  top:50%; left:0;
+    .holder p的 position: relative;  top:-50%;
+    通过控制绝对层的位置实现ie6，7下的垂直居中
+    holder div中的*position:absolute是只给ie6和7看的css hack
+
+    对于水平居中要说的是如果holder div的width如果未指明100%，在ie7中它是不会自动延伸100%的，也就无法实现水平居中
+    */
+  </style>
+
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="holder">
+    <div><p><img src="http://gtms.job10000.com/jiaoyu/content/images/logo.gif"/></p></div>
+  </div>
+
+  <div style="line-height:40px; background:#006633; font-size:14px; color:#FFFFFF; font-weight:bold; text-align:center;">
+    以上的图片垂直并且水平居中,您可以改变holder的height和width进行测试
+  </div>
+
+</div>
+</body>
+</html>
+
+
+
+
