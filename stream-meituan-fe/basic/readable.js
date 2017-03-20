@@ -21,9 +21,9 @@ const iterator = (limit => {
   return {
     next: () => {
       if (limit--) {
-        return {done: false, value: limit + Math.random()}
+        return { done: false, value: limit + Math.random() }
       }
-      return {done: true}
+      return { done: true }
     }
   }
 })(1e2)
